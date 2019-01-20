@@ -22,7 +22,7 @@ class Login extends React.Component {
 
     handleLogin(e,data) {
         e.preventDefault();
-        axios.post('http://localhost:3000/login',data.userName)
+        axios.post('http://localhost:3000/login',data)
         .then(function(response){
             console.log("Login Success for",data.userName)
             console.log(response.status);
