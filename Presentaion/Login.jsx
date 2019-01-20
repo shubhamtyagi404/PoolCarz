@@ -5,6 +5,7 @@ import Panel from 'react-bootstrap/lib/Panel';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Button from 'react-bootstrap/lib/Button';
+import {withRouter} from "react-router-dom";
 import axios from 'axios';
 class Login extends React.Component {
     constructor(props) {
@@ -23,15 +24,16 @@ class Login extends React.Component {
     handleLogin(e,data) {
         e.preventDefault();
         axios.post('http://localhost:3000/login',data)
-        .then(function(response){
+        .then((response)=>{
             console.log("Login Success for",data.userName)
-            console.log(response.status);
-            if(response.status=="200"){
+            console.log(response);
+            if(response.statusText=="OK"){
                 this.props.history.push("/bookride");
+                console.log("inside");
             }
         })
         .catch(function(error){
-            alert("some error occurred");
+            console.log(error);
         });
     }
     render() {
@@ -40,7 +42,7 @@ class Login extends React.Component {
                 <Navbar >
                     <Navbar.Header >
                         <Navbar.Brand >
-                            <a href="#home" style={{ color: "#1E90FF", fontSize: "30px" }}><b>PoolCarz</b></a>
+                            <p  style={{ color: "#1E90FF", fontSize: "30px" }}><b>PoolCarz</b></p>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
@@ -71,4 +73,4 @@ class Login extends React.Component {
         )
     }
 }
-export default Login;
+export default withRouter(Login);

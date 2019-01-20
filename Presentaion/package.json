@@ -20,6 +20,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
+    "react-table": "^6.8.6",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
